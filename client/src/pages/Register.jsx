@@ -7,7 +7,32 @@ function Register() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('guard');
 
-  const handleSubmit = (e) => {
+  /**
+   * Handles the registration form submission.
+   * Prevents the default form submission behavior and logs the registration
+   * attempt details to the console.
+   * @param {Event} e The form submission event
+   */
+  const handleSubmit = (e) => {const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, password, role })
+      });
+      if (!response.ok) {
+        throw new Error('Registration failed');
+      }
+      // Registration successful, handle the response as needed
+      console.log('Registration successful');
+    } catch (error) {
+      // Handle registration errors
+      console.error('Registration error:', error);
+    }
+  };
     e.preventDefault();
     // TODO: Implement registration logic
     console.log('Registration attempt with:', { name, email, password, role });

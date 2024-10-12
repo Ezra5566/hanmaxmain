@@ -4,8 +4,9 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import RequestService from './pages/RequestService'
-// import ClientDashboard from './pages/ClientDashboard'
-// import AdminDashboard from './pages/AdminPanel'
+import AdminPanel from './pages/AdminPanel'
+import ClientDashboard from './pages/ClientDashboard'
+import GuardDashboard from './pages/GuardDashboard'
 function App() {
   return (
     <Router>
@@ -15,8 +16,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/request-service" element={<RequestService />} />
-          {/* <Route path="/client" element={<ClientDashboard />} /> */}
-          {/* <Route path="/admin" element={<AdminDashboard />} /> */}
+          <Route path="/client" element={<ClientDashboard />} />
+          <Route path="/guard" element={<GuardDashboard />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </div>
     </Router>
